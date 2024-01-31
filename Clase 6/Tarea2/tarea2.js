@@ -90,6 +90,7 @@ document.querySelector("#calcular").onclick = function (event){
 
 
 function agregarSalario(indice){
+    ocultarErrores();
     const $div = document.createElement("div");
     $div.className = "input-salario";
     $div.id = indice;
@@ -118,7 +119,13 @@ function quitarSalario(indice){
     divSalario.remove();
     }
     else{
-        alert("No hay elementos para quitar");
+        //alert("No hay elementos para quitar");
+        const $errores = document.querySelector("#errores");
+        $errores.innerHTML = "";
+        const $error = document.createElement('li');
+        $error.innerText = "No hay elementos para quitar"
+        $errores.appendChild($error);
+        mostrarErrores();
     }
 }
 
